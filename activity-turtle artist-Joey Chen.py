@@ -2,6 +2,7 @@
 # Author:
 # 28 October
 
+import random
 import turtle
 import math
 
@@ -44,10 +45,12 @@ def draw_ellipse(angle: float, increase_rate: float, rotation: float, a, b, star
     x = a * math.cos(rad) * math.cos(rot) - b * math.sin(rad) * math.sin(rot)
     y = a * math.cos(rad) * math.sin(rot) + b * math.sin(rad) * math.cos(rot)
 
+    color = ["#FFFD77", "#26C485", "#F7F06D", "#F26419", "#8DE969", "#B1CF5F"]
     # Record the start point
     if start is None:
         start = (x, y)
         t.penup()
+        t.color(random.choice(color))
         t.goto(start)
         t.pendown()
     else:
@@ -65,6 +68,7 @@ def draw_ellipse(angle: float, increase_rate: float, rotation: float, a, b, star
 
 # Call the recursive function to draw multiple ellipses
 def draw_tangent_ellipses():
+    t.pensize(4)
     num_ellipses = 3
     rotated_angle = 120
     # first ellipse vertical
